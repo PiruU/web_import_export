@@ -17,7 +17,7 @@ The source code is organized in the `app/` directory:
 
 ## 2) Quick Start
 
-### Option A — Using Docker (recommended)
+### Using Docker
 A minimal `Dockerfile` with `uvicorn` is provided.
 
 1. Build:
@@ -35,20 +35,7 @@ docker run -d --name api -p 8080:8000   -v "$(pwd)/web_import_export/data:/opt/c
 - Swagger UI: http://localhost:8080/docs
 - OpenAPI JSON: http://localhost:8080/openapi.json
 
-### Option B — Local execution (without Docker)
-Requirements: Python 3.11+ (Dockerfile targets Python 3.13).
-
-```bash
-cd web_import_export/app
-python -m venv .venv && source .venv/bin/activate
-pip install fastapi uvicorn pydantic httpx
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-Local access: http://127.0.0.1:8000 (or `:8080` if you reuse the Docker port mapping).
-
 ## 3) Expected CSV Files
-
-Examples are available in `web_import_export/data/`:
 
 ### `customers.csv`
 ```
